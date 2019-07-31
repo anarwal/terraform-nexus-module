@@ -1,5 +1,5 @@
 resource "aws_iam_user" "nexus_s3_user" {
-  name          = module.nexus_label.name
+  name          = format("%s-nexus",module.nexus_label.name)
   path          = "/"
   force_destroy = "false"
 }
