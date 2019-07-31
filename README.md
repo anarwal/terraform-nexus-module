@@ -34,7 +34,8 @@ module "nexus" {
       stage                             = "test"
       attributes                        = ["xyz"]
       private_subnet_id                 = var.private_subnet_id
-      public_subnet_id                  = var.public_subnet_id
+      public_subnet_id1                 = var.public_subnet_id1
+      public_subnet_id2                 = var.public_subnet_id2
       domain_name                       = var.domain_name
       zone_id                           = var.zone_id
       ssh_key_name                      = var.ssh_key_name
@@ -47,15 +48,16 @@ module "nexus" {
 
 | Input                             | Description                                                                                                               | Type    | Default            | Required |
 | ----------------------------------| --------------------------------------------------------------------------------------------------------------------------| --------|--------------------|----------|
-| namespace                         | Namespace, which could be your organization name or abbreviation"                                                         |`string` | ""                 | yes      |
-| stage                             | Stage, e.g. 'prod', 'staging', 'dev'                                                                                      |`string` | ""                 | yes      |
-| name                              | Solution name, e.g. 'app' or 'jenkins'                                                                                    |`string` | ""                 | yes      |
-| attributes                        | Additional attributes                                                                                                     |`list`   | `<list>`           | no       |           
-| delimiter                         | Delimiter to be used between namespace, environment, stage, name and attributes                                           |`string` | "-"                | no       |
+| namespace                         | Namespace, which could be your organization name or abbreviation"                                                         | `string`| ""                 | yes      |
+| stage                             | Stage, e.g. 'prod', 'staging', 'dev'                                                                                      | `string`| ""                 | yes      |
+| name                              | Solution name, e.g. 'app' or 'jenkins'                                                                                    | `string`| ""                 | yes      |
+| attributes                        | Additional attributes                                                                                                     | `list`  | `<list>`           | no       |           
+| delimiter                         | Delimiter to be used between namespace, environment, stage, name and attributes                                           | `string`| "-"                | no       |
 | force_destroy_s3_bucket           | Boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error.   | `bool`  | `false`            | no       |
 | domain_name                       | ALB record53 entry domain name                                                                                            | `string`| ""                 | yes      |
-| public_subnet_id                  | List of public subnet IDs to attach                                                                                       | `list`  | `<list>`           | yes      |
-| private_subnet_id                 | List of private subnet IDs to attach                                                                                      | `list`  | `<list>`           | yes      |
+| public_subnet_id1                 | Public subnet ID to attach                                                                                                | `string`| ""                 | yes      |
+| public_subnet_id2                 | Public subnet ID to attach                                                                                                | `string`| ""                 | yes      |
+| private_subnet_id                 | Private subnet ID to attach                                                                                               | `string`| ""                 | yes      |
 | vpc_id                            | Id of the VPC Gitlab will be provisioned in                                                                               | `string`| ""                 | yes      |
 | nexus_data_disk_size              | Size of nexus data disk to provision                                                                                      | `number`| `10 `              | no       |
 | nexus_data_device_name            | Name of nexus data disk                                                                                                   | `string`| `/dev/xvdi`        | no       |

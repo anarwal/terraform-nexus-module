@@ -1,6 +1,6 @@
 resource "aws_instance" "nexus_bastion" {
   instance_type          = "t2.micro"
-  subnet_id              = data.aws_subnet.public_selected.id
+  subnet_id              = data.aws_subnet.public_selected1.id
   vpc_security_group_ids = [aws_security_group.nexus_external_ssh.id]
   key_name               = var.ssh_key_name
   ami                    = data.aws_ami.centos.id

@@ -34,16 +34,19 @@ variable "domain_name" {
   default     = ""
 }
 
-variable "public_subnet_id" {
-  type        = list
-  description = "A list of public subnet IDs to attach"
-  default     = []
+variable "public_subnet_id1" {
+  type        = string
+  description = "Public subnet ID to attach"
+}
+
+variable "public_subnet_id2" {
+  type        = string
+  description = "Public subnet ID to attach"
 }
 
 variable "private_subnet_id" {
-  type        = list
-  description = "A list of private subnet IDs to attach"
-  default     = []
+  type        = string
+  description = "Private subnet ID to attach"
 }
 
 variable "vpc_id" {

@@ -4,7 +4,7 @@ resource "aws_lb" "nexus_alb" {
   internal           = false
   security_groups    = [aws_security_group.nexus_alb.id]
   ip_address_type    = "ipv4"
-  subnets            = var.public_subnet_id
+  subnets            = [var.public_subnet_id1, var.public_subnet_id2]
   tags               = {"Name" = format("%s-nexus-alb", module.nexus_label.name), "Environment" = module.nexus_label.stage}
 }
 
