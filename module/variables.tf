@@ -28,12 +28,6 @@ variable "name" {
   default     = ""
 }
 
-variable "dns_name" {
-  type        = string
-  description = "A domain name for which the certificate should be issued"
-  default     = ""
-}
-
 variable "domain_name" {
   type        = string
   description = "ALB record53 entry domain name"

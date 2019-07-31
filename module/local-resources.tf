@@ -4,27 +4,40 @@ data "aws_subnet" "private_selected" {
 }
 
 data "aws_subnet" "public_selected" {
-id = element(var.public_subnet_id, 0)
+  id = element(var.public_subnet_id, 0)
 }
 
 # Use this data source to get the access to the effective Account ID, User ID, and ARN in which Terraform is authorized.
 data "aws_caller_identity" "current" {}
 
 data "aws_ami" "centos" {
-most_recent = true
+  most_recent = true
 
-filter {
-name   = "virtualization-type"
-values = ["hvm"]
+  filter {
+  name   = "virtualization-type"
+  values = ["hvm"]
+  }
+
+  filter {
+  name   = "product-code"
+  values = ["aw0evgkw8e5c1q413zgy5pjce"]
+  }
+
+  owners = ["aws-marketplace"]
 }
 
-filter {
-name   = "product-code"
-values = ["aw0evgkw8e5c1q413zgy5pjce"]
+data "template_file" "nexus_application_user_data" {
+  template = "${file("${path.module}/templates/init.sh")}"
+
+  vars = {
+    nexus_data_device_name     = var.nexus_data_device_name
+    nexus_data_directory       = var.nexus_data_directory
+  }
 }
 
-owners = ["aws-marketplace"]
+data "template_cloudinit_config" "config" {
+  part {
+  content_type = "text/x-shellscript"
+  content      = "${data.template_file.nexus_application_user_data.rendered}"
+  }
 }
-
-
-

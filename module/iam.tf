@@ -15,19 +15,19 @@ resource "aws_iam_access_key" "nexus_s3_access_key" {
 }
 
 resource "aws_iam_policy" "nexus_s3_policy" {
-  name = format("%s-policy",module.nexus_label.name)
+  name = format("%s-nexus-s3-policy",module.nexus_label.name)
   path = "/"
-  description = format("%s-policy",module.nexus_label.name)
+  description = format("%s-nexus-s3-policy",module.nexus_label.name)
   policy =  <<EOF
-  {
-    "Version": "2012-10-17",
-    "Statement": [
-      {
-              "Effect": "Allow",
-              "Action": "s3:*",
-              "Resource": "*"
-      }
-    ]
-  }
-  EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+            "Effect": "Allow",
+            "Action": "s3:*",
+            "Resource": "*"
+    }
+  ]
+}
+EOF
 }
