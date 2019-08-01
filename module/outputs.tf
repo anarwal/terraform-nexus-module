@@ -42,14 +42,6 @@ output "sg_internal_nexus_ingress" {
   value = aws_security_group.internal_nexus.ingress
 }
 
-output "nexus_acm_cert_arn" {
-  value = aws_acm_certificate.nexus_cert.arn
-}
-
-output "nexus_route53_cert_validation" {
-  value = aws_route53_record.nexus_cert_validation.fqdn
-}
-
 output "nexus_route53_nexus_alb" {
   value = aws_route53_record.nexus_alb_dns.fqdn
 }

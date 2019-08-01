@@ -51,7 +51,7 @@ resource "aws_security_group" "nexus_external_ssh" {
 
 
 resource "aws_security_group" "nexus_alb" {
-  name_prefix = format("%s-%s-external-alb-", module.nexus_label.name, module.nexus_label.stage)
+  name_prefix = format("%s-%s-nexus-external-alb-", module.nexus_label.name, module.nexus_label.stage)
   description = "Security group to allow all inbound web traffic from world to Load balancer"
   vpc_id      = var.vpc_id
   tags        = { "Name" = format("%s-nexus-alb-instance",module.nexus_label.name), "Environment" = module.nexus_label.stage }
@@ -91,6 +91,20 @@ resource "aws_security_group" "internal_nexus" {
   ingress {
     from_port       = 8081
     to_port         = 8081
+    protocol        = "tcp"
+    security_groups = [aws_security_group.nexus_alb.id]
+  }
+
+  ingress {
+    from_port       = 8082
+    to_port         = 8082
+    protocol        = "tcp"
+    security_groups = [aws_security_group.nexus_alb.id]
+  }
+
+  ingress {
+    from_port       = 8083
+    to_port         = 8083
     protocol        = "tcp"
     security_groups = [aws_security_group.nexus_alb.id]
   }

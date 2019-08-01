@@ -42,14 +42,6 @@ output "sg_internal_nexus_ingress" {
   value = module.nexus.sg_internal_nexus_ingress
 }
 
-output "nexus_acm_cert_arn" {
-  value = module.nexus.nexus_acm_cert_arn
-}
-
-output "nexus_route53_cert_validation" {
-  value = module.nexus.nexus_route53_cert_validation
-}
-
 output "nexus_route53_nexus_alb" {
   value = module.nexus.nexus_route53_nexus_alb
 }

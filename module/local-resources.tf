@@ -1,5 +1,9 @@
-data "aws_subnet" "private_selected" {
-  id = var.private_subnet_id
+data "aws_subnet" "private_selected1" {
+  id = var.private_subnet_id1
+}
+
+data "aws_subnet" "private_selected2" {
+  id = var.private_subnet_id2
 }
 
 data "aws_subnet" "public_selected1" {
@@ -8,6 +12,12 @@ data "aws_subnet" "public_selected1" {
 
 data "aws_subnet" "public_selected2" {
   id = var.public_subnet_id2
+}
+
+data "aws_acm_certificate" "aws_account_cert" {
+  domain   = var.dns_name
+  types       = ["AMAZON_ISSUED"]
+  most_recent = true
 }
 
 # Use this data source to get the access to the effective Account ID, User ID, and ARN in which Terraform is authorized.

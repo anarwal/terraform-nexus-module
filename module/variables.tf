@@ -28,9 +28,21 @@ variable "name" {
   default     = ""
 }
 
-variable "domain_name" {
+variable "dns_name" {
   type        = string
-  description = "ALB record53 entry domain name"
+  description = "AWS account cert dns address"
+  default     = ""
+}
+
+variable "registry_domain_name" {
+  type        = string
+  description = "ALB record53 entry registry domain name"
+  default     = ""
+}
+
+variable "docker_domain_name" {
+  type        = string
+  description = "ALB record53 entry docker domain name"
   default     = ""
 }
 
@@ -44,7 +56,12 @@ variable "public_subnet_id2" {
   description = "Public subnet ID to attach"
 }
 
-variable "private_subnet_id" {
+variable "private_subnet_id1" {
+  type        = string
+  description = "Private subnet ID to attach"
+}
+
+variable "private_subnet_id2" {
   type        = string
   description = "Private subnet ID to attach"
 }
@@ -63,7 +80,7 @@ variable "nexus_data_disk_size" {
 variable "nexus_data_device_name" {
   type        = string
   description = "The name nexus data disk"
-  default     = "/dev/xvdi"
+  default     = "/dev/sda2"
 }
 
 variable "nexus_data_directory" {
@@ -108,5 +125,75 @@ variable "enable_key_rotation" {
 variable "ssh_key_name"{
   type        = string
   description = "SSH key for ec2 ssh"
+  default     = ""
+}
+
+variable "force_destroy_s3_bucket" {
+  description = "A boolean that indicates all objects should be deleted from the bucket so that the bucket can be destroyed without error. These objects are not recoverable"
+  default     =  false
+}
+
+variable "nexus_docker_hosted_s3_bucket_name" {
+  type        = string
+  description = "S3 bucket name"
+  default     = ""
+}
+
+variable "nexus_npm_registry_s3_bucket" {
+  type        = string
+  description = "Name of Nexus NPM Registry S3 bucket"
+  default     = ""
+}
+
+variable "nexus_npm_private_s3_bucket" {
+  type        = string
+  description = "Name of Nexus NPM Private S3 bucket"
+  default     = ""
+}
+
+variable "nexus_npm_group_s3_bucket" {
+  type        = string
+  description = "Name of Nexus NPM Group S3 bucket"
+  default     = ""
+}
+
+variable "nexus_maven_snapshots_s3_bucket" {
+  type        = string
+  description = "Name of Nexus Maven Snapshots S3 bucket"
+  default     = ""
+}
+variable "nexus_maven_releases_s3_bucket" {
+  type        = string
+  description = "Name of Nexus Maven Releases S3 bucket"
+  default     = ""
+}
+
+variable "nexus_maven_group_s3_bucket" {
+  type        = string
+  description = "Name of Nexus Maven Group S3 bucket"
+  default     = ""
+}
+
+variable "nexus_maven_central_s3_bucket" {
+  type        = string
+  description = "Name of Nexus Maven Central S3 bucket"
+  default     = ""
+}
+
+variable "nexus_docker_private_s3_bucket" {
+  type        = string
+  description = "Name of Nexus Docker Private S3 bucket"
+  default     = ""
+}
+
+variable "nexus_docker_hub_s3_bucket_name" {
+  type        = string
+  description = "Name of Nexus Docker Hub S3 bucket"
+  default     = ""
+}
+
+variable "nexus_docker_group_s3_bucket" {
+  type        = string
+  description = "Name of Nexus Docker Group S3 bucket"
   default     = ""
 }
