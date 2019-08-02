@@ -80,7 +80,7 @@ variable "nexus_data_disk_size" {
 variable "nexus_data_device_name" {
   type        = string
   description = "The name nexus data disk"
-  default     = "/dev/sdf"
+  default     = "/dev/xvdb"
 }
 
 variable "nexus_data_directory" {
@@ -186,7 +186,7 @@ variable "nexus_docker_private_s3_bucket" {
   default     = ""
 }
 
-variable "nexus_docker_hub_s3_bucket_name" {
+variable "nexus_docker_hub_s3_bucket" {
   type        = string
   description = "Name of Nexus Docker Hub S3 bucket"
   default     = ""

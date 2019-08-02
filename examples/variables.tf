@@ -66,7 +66,7 @@ variable "nexus_maven_central_s3_bucket" {
 variable "nexus_docker_private_s3_bucket" {
 }
 
-variable "nexus_docker_hub_s3_bucket_name" {
+variable "nexus_docker_hub_s3_bucket" {
 }
 
 variable "nexus_docker_group_s3_bucket" {

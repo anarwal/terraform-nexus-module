@@ -4,10 +4,7 @@ resource "aws_ebs_volume" "nexus_data" {
   encrypted         = true
   type              = "gp2"
   availability_zone = data.aws_subnet.private_selected1.availability_zone
-  tags  = {
-    "Name" = format("%s-nexus-data-disk",module.nexus_label.name),
-    "Type" = "nexus-data"
-  }
+  tags              = { "Name" = format("%s-nexus-data-disk",module.nexus_label.name), "Type" = "nexus-data" }
 }
 
 resource "aws_volume_attachment" "nexus_data_attachment" {

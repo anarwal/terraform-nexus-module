@@ -53,3 +53,43 @@ output "nexus_bastion_public_eip" {
 output "nexus_private_ip" {
   value = aws_instance.nexus_application.private_ip
 }
+
+output "nexus_npm_registry_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_npm_registry_s3_bucket.bucket
+}
+
+output "nexus_npm_private_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_npm_private_s3_bucket.bucket
+}
+
+output "nexus_npm_group_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_npm_group_s3_bucket.bucket
+}
+
+output "nexus_maven_snapshots_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_maven_snapshots_s3_bucket.bucket
+}
+
+output "nexus_maven_releases_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_maven_releases_s3_bucket.bucket
+}
+
+output "nexus_maven_group_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_maven_group_s3_bucket.bucket
+}
+
+output "nexus_maven_central_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_maven_central_s3_bucket.bucket
+}
+
+output "nexus_docker_private_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_docker_private_s3_bucket.bucket
+}
+
+output "nexus_docker_hub_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_docker_hub_s3_bucket.bucket
+}
+
+output "nexus_docker_group_s3_bucket_name" {
+  value = aws_s3_bucket.nexus_docker_group_s3_bucket.bucket
+}

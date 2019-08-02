@@ -19,7 +19,7 @@ tags = merge(module.nexus_label.tags,  {"Bucket-Name" = format("%s-%s",module.ne
 }
 
 resource "aws_s3_bucket" "nexus_docker_hub_s3_bucket" {
-  bucket        = format("%s-%s",module.nexus_label.id, var.nexus_docker_hub_s3_bucket_name)
+  bucket        = format("%s-%s",module.nexus_label.id, var.nexus_docker_hub_s3_bucket)
   acl           = "private"
   force_destroy = var.force_destroy_s3_bucket
 
@@ -35,7 +35,7 @@ resource "aws_s3_bucket" "nexus_docker_hub_s3_bucket" {
     enabled = true
   }
 
-  tags = merge(module.nexus_label.tags,  {"Bucket-Name" = format("%s-%s",module.nexus_label.id, var.nexus_docker_hub_s3_bucket_name)})
+  tags = merge(module.nexus_label.tags,  {"Bucket-Name" = format("%s-%s",module.nexus_label.id, var.nexus_docker_hub_s3_bucket)})
 }
 
 resource "aws_s3_bucket" "nexus_docker_private_s3_bucket" {

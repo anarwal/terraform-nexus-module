@@ -30,6 +30,6 @@ module "nexus" {
   nexus_maven_group_s3_bucket       = var.nexus_maven_group_s3_bucket
   nexus_maven_central_s3_bucket     = var.nexus_maven_central_s3_bucket
   nexus_docker_private_s3_bucket    = var.nexus_docker_private_s3_bucket
-  nexus_docker_hub_s3_bucket_name   = var.nexus_docker_hub_s3_bucket_name
+  nexus_docker_hub_s3_bucket        = var.nexus_docker_hub_s3_bucket
   nexus_docker_group_s3_bucket      = var.nexus_docker_group_s3_bucket
 }
