@@ -1,8 +1,8 @@
 #!/bin/sh
 
 # Mount EBS for nexus data
-sudo mkfs.xfs -f ${nexus_data_device_name}
-sudo mkdir -p ${nexus_data_directory}
+sudo mkfs -t xfs ${nexus_data_device_name}
+sudo mkdir ${nexus_data_directory}
 sudo mount ${nexus_data_device_name} ${nexus_data_directory}
 
 # Run nexus docker image

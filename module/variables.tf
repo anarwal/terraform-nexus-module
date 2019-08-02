@@ -80,7 +80,7 @@ variable "nexus_data_disk_size" {
 variable "nexus_data_device_name" {
   type        = string
   description = "The name nexus data disk"
-  default     = "/dev/sda2"
+  default     = "/dev/sdf"
 }
 
 variable "nexus_data_directory" {
