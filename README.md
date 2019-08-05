@@ -12,7 +12,7 @@ This module assumes following resources are already available:
 
 and it creates following resources:
 
-1. Gitlab Instance
+1. Nexus Instance
 2. ALB for Nexus and Docker registry
 3. IAM user for Nexus Blob stores
 4. KMS Key for EBS encryption
